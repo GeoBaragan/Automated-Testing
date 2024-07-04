@@ -1,6 +1,10 @@
 describe('On saucedemo.com', () => {
-    it('There should be an error message', () => {
+    beforeEach(() => {
         cy.visit('https://www.saucedemo.com/');
+    })
+
+    it('There should be an error message', () => {
+        
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('standard');
         cy.get('[data-test="login-button"]').click();
@@ -10,14 +14,12 @@ describe('On saucedemo.com', () => {
     })
 
     it('It should login successful', () => {
-        cy.visit('https://www.saucedemo.com/');
-        cy.get('[data-test="username"]').type('standard_user');
+                cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('secret_sauce');
         cy.get('[data-test="login-button"]').click();
     })
 
     it('It should open and close the side menu', () => {
-        cy.visit('https://www.saucedemo.com/');
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('secret_sauce');
         cy.get('[data-test="login-button"]').click();
@@ -26,7 +28,6 @@ describe('On saucedemo.com', () => {
     })
 
     it('It should add a product in the cart', () => {
-        cy.visit('https://www.saucedemo.com/');
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('secret_sauce');
         cy.get('[data-test="login-button"]').click();
@@ -43,7 +44,6 @@ describe('On saucedemo.com', () => {
     })
 
     it('It should logout successful', () => {
-        cy.visit('https://www.saucedemo.com/');
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('secret_sauce');
         cy.get('[data-test="login-button"]').click();
